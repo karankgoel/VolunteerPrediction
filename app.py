@@ -44,7 +44,7 @@ def predict_showup():
     out_data = test_data.copy()
     out_data['show_prob'] = prediction[:,1]
     final_out_data = out_data[['id', 'show_prob']]
-    final_out_data.to_csv(os.path.expanduser("~") + "/Downloads/ShowUpPrediction.csv", index=False)
+    final_out_data.to_csv("ShowUpPrediction.csv", index=False)
     return jsonify("Results are downloaded in downloads folder with the name ShowUpPrediction.csv")
 
 @app.route('/predict_activity',methods=['POST'])

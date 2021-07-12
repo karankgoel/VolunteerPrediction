@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Read CSV In JavaScript</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    function ShowHidePrediction() {
+        if (document.getElementById('pShowUp').checked) {
+            document.getElementById('predictShowup').style.display = 'inline-block';
+            document.getElementById('predictActivity').style.display = 'none';
+        } else {
+            document.getElementById('predictActivity').style.display = 'inline-block';
+            document.getElementById('predictShowup').style.display = 'none';
+        }
+    }
+  </script>
+</head>
+<body>
+  <div class="container" style="margin-top: 100px; margin-left: 300px;">
+    <div class="col-md-12" style="margin-top: 3%;">
+        <h4 style="margin-left: 10%; font-weight: bold;">Volunteer Prediction</h4>
+    </div>
+    <!-- <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="col-md-4">
+        <input type="file" id="fileToUpload" name="fileToUpload" class="form-control">
+        </div>
+        <div class="col-md-4">
+        <button type="submit" class="btn btn-info btn-md" id="btnUploadFile">Upload File</button>
+        </div>
+    </form> -->
+
+    <div>
+        <label><input type="radio" onclick="javascript:ShowHidePrediction();" name="prediction" id="pShowUp">Showup</label>
+        <label><input type="radio" onclick="javascript:ShowHidePrediction();" name="prediction" id="pActivity">Activity</label>
+    </div>
+    <div id="predictShowup" style="display: none;">
+        <form action="/predict_showup" method="post" enctype="multipart/form-data">
+            <div class="col-md-4">
+                <input type="file" id="fileToUpload" name="fileToUpload" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-info btn-md" id="btnUploadFile">Upload File and Predict Showup</button>
+            </div>
+        </form>
+    </div>
+    <div id="predictActivity" style="display: none;">
+        <form action="/predict_activity" method="post" enctype="multipart/form-data">
+            <div class="col-md-4">
+                <input type="file" id="fileToUploadActivity" name="fileToUploadActivity" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-info btn-md" id="btnUploadFileActivity">Upload File and Predict Activity</button>
+            </div>
+        </form>
+    </div>
+    <br/>
+</body>
+</html>

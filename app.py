@@ -63,4 +63,4 @@ def predict_activity():
     return jsonify("Results are downloaded in downloads folder with the name ActivityPrediction.csv")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
